@@ -1,6 +1,12 @@
 # qualibpmn
 JS library for quality evaluation of BPMN files.
 
+Include as usual JavaScript library:
+
+```html
+<script src="qualibpmn.js"></script>
+```
+
 Basic usage example:
 
 ```javascript
