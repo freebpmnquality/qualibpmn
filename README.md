@@ -40,35 +40,3 @@ for (const process in processes) {
         console.log(measured);
 }
 ```
-
-Expected output for the first pool in the given BPMN file accessed in ```url```:
-
-```javascript
-{
-   "name":"Process_1idljgp",
-   "elements":[
-      {
-         "name":"Event_1wpssqp",
-         "type":"startEvent",
-         "incoming":0,
-         "outgoing":1,
-         "image":[0,0,1,0,0,1,0,0,1,0,0],
-         "evaluation":[]
-      },
-      {
-         "name":"Implicit workflow end",
-         "type":"activity",
-         "incoming":1,
-         "outgoing":0,
-         "image":[1,0,0,0,0,0,1,1,0,0,0],
-         "evaluation":[
-            {
-               "image":[1,0,0,0,0,0,1,1,0,0,0],
-               "similarity":0,
-               "description":"Tasks should have one incoming and one outgoing sequence flow."
-            }
-         ]
-      }
-   ]
-}
-```
