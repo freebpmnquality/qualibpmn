@@ -4,7 +4,11 @@ JS library for quality evaluation of BPMN files.
 Include as usual JavaScript library:
 
 ```html
+<!-- Reference JS file -->
 <script src="qualibpmn.js"></script>
+
+<!-- Or better use minified JS file -->
+<script src="qualibpmn.min.js"></script>
 ```
 
 Basic usage example:
@@ -29,6 +33,11 @@ for (const process in processes) {
 	const evaluated = QualiBPMNUtil.evaluateProcess(flat);
 
 	console.log(evaluated);
+	
+	// Measure process quality
+        const measured = QualiBPMNUtil.measureSyntacticQuality(evaluated);
+
+        console.log(measured);
 }
 ```
 
