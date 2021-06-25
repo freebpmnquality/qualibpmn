@@ -62,7 +62,9 @@ class QualiBPMNUtil {
                 0, // incoming > 1
                 0 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 1,
+            redundant: 0
         },
 
         // ACTIVITY, IN: 0, OUT: 1
@@ -85,7 +87,9 @@ class QualiBPMNUtil {
                 0, // incoming > 1
                 0 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 1,
+            redundant: 0
         },
 
         // ACTIVITY, IN: 1, OUT: 0
@@ -108,7 +112,9 @@ class QualiBPMNUtil {
                 0, // incoming > 1
                 0 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 1,
+            redundant: 0
         },
 
         // ACTIVITY, IN: 0, OUT: > 1
@@ -131,7 +137,9 @@ class QualiBPMNUtil {
                 0, // incoming > 1
                 1 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 1,
+            redundant: 1
         },
 
         // ACTIVITY, IN: > 1, OUT: 0
@@ -154,7 +162,9 @@ class QualiBPMNUtil {
                 1, // incoming > 1
                 0 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 1,
+            redundant: 1
         },
 
         // ACTIVITY, IN: 1, OUT: > 1
@@ -177,7 +187,9 @@ class QualiBPMNUtil {
                 0, // incoming > 1
                 1 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 0,
+            redundant: 1
         },
 
         // ACTIVITY, IN: > 1, OUT: 1
@@ -200,7 +212,9 @@ class QualiBPMNUtil {
                 1, // incoming > 1
                 0 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 0,
+            redundant: 1
         },
 
         // ACTIVITY, IN: > 1, OUT: > 1
@@ -223,32 +237,501 @@ class QualiBPMNUtil {
                 1, // incoming > 1
                 1 // outgoing > 1
             ],
-            description: this.BPMN_WARNINGS.TASK
+            description: this.BPMN_WARNINGS.TASK,
+            incomplete: 0,
+            redundant: 1
         },
 
         // --------------------------------------------------------------------------------------------------------------------
         // GATEWAY
         // --------------------------------------------------------------------------------------------------------------------
 
-        // ...
+        // GATEWAY, IN: 0, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: 0, OUT: 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                1, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: 0, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: 1, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                1, // outgoing === 0
+
+                1, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: > 1, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                1, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: 1, OUT: 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                0, // outgoing === 0
+
+                1, // incoming === 1
+                1, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // GATEWAY, IN: > 1, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                1, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                1, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.GATEWAY,
+            incomplete: 0,
+            redundant: 1
+        },
 
         // --------------------------------------------------------------------------------------------------------------------
         // START EVENT
         // --------------------------------------------------------------------------------------------------------------------
 
-        // ...
+        // START EVENT, IN: 0, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                1, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.START_EVENT,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // START EVENT, IN: 0, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                1, // START_EVENT
+                0, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.START_EVENT,
+            incomplete: 0,
+            redundant: 1
+        },
 
         // --------------------------------------------------------------------------------------------------------------------
         // END EVENT
         // --------------------------------------------------------------------------------------------------------------------
 
-        // ...
+        // END EVENT, IN: 0, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                1, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.END_EVENT,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // END EVENT, IN: > 1, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                1, // END_EVENT
+                0, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                1, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.END_EVENT,
+            incomplete: 0,
+            redundant: 1
+        },
 
         // --------------------------------------------------------------------------------------------------------------------
         // INTERMEDIATE EVENT
         // --------------------------------------------------------------------------------------------------------------------
 
-        // ...
+        // INTERMEDIATE EVENT, IN: 0, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // INTERMEDIATE EVENT, IN: 0, OUT: 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                1, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // INTERMEDIATE EVENT, IN: 1, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                1, // outgoing === 0
+
+                1, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 1,
+            redundant: 0
+        },
+
+        // INTERMEDIATE EVENT, IN: 0, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                1, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 1,
+            redundant: 1
+        },
+
+        // INTERMEDIATE EVENT, IN: > 1, OUT: 0
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                1, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                1, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 1,
+            redundant: 1
+        },
+
+        // INTERMEDIATE EVENT, IN: 1, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                0, // outgoing === 0
+
+                1, // incoming === 1
+                0, // outgoing === 1
+
+                0, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 0,
+            redundant: 1
+        },
+
+        // INTERMEDIATE EVENT, IN: > 1, OUT: 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                1, // outgoing === 1
+
+                1, // incoming > 1
+                0 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 0,
+            redundant: 1
+        },
+
+        // INTERMEDIATE EVENT, IN: > 1, OUT: > 1
+        {
+            image: [
+                0, // ACTIVITY
+
+                0, // GATEWAY
+
+                0, // START_EVENT
+                0, // END_EVENT
+                1, // INTERMEDIATE_EVENT
+
+                0, // incoming === 0
+                0, // outgoing === 0
+
+                0, // incoming === 1
+                0, // outgoing === 1
+
+                1, // incoming > 1
+                1 // outgoing > 1
+            ],
+            description: this.BPMN_WARNINGS.INTERMEDIATE_EVENT,
+            incomplete: 0,
+            redundant: 1
+        }
     ];
 
     /**
@@ -400,14 +883,62 @@ class QualiBPMNUtil {
 
                 if (similarity === 0) {
                     process.elements[i].evaluation.push({
-                        image: this.ERROR_IMAGES[j].image,
+                        image: this.ERROR_IMAGES[j],
                         similarity: similarity,
-                        description: this.ERROR_IMAGES[j].description
                     });
                 }
             }
         }
 
         return process;
+    }
+
+    /**
+     * Returns the linquistic quality value according to the Harrington scale.
+     */
+    static getLinguisticQuality(value) {
+        return value >= 0.8 ? 'high' :
+            value >= 0.63 ? 'medium' :
+            'low';
+    }
+
+    /**
+     * Returns the syntactic validity, completeness, and redundancy.
+     */
+    static measureSyntacticQuality(process) {
+        let totalSymbols = process.elements.length;
+
+        let invalidSymbols = 0;
+
+        let incompleteSymbols = 0;
+        let redundantSymbols = 0;
+
+        for (const i in process.elements) {
+            if (process.elements[i].evaluation.length > 0) {
+                invalidSymbols++;
+
+                incompleteSymbols += process.elements[i].evaluation[0].image.incomplete;
+                redundantSymbols += process.elements[i].evaluation[0].image.redundant;
+            }
+        }
+
+        const _validity = 1 - (invalidSymbols / totalSymbols);
+        const _completeness = 1 - (incompleteSymbols / totalSymbols);
+        const _redundancy = redundantSymbols / totalSymbols;
+
+        return {
+            validity: {
+                crisp: _validity,
+                linguistic: this.getLinguisticQuality(_validity)
+            },
+            completeness: {
+                crisp: _completeness,
+                linguistic: this.getLinguisticQuality(_completeness)
+            },
+            redundancy: {
+                crisp: _redundancy,
+                linguistic: this.getLinguisticQuality(_redundancy)
+            }
+        };
     }
 }
