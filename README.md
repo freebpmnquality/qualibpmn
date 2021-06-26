@@ -8,11 +8,8 @@ Include as usual JavaScript library:
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.1.3/xml2json.min.js" integrity="sha512-xl6hrpp8+qe3CwgDhhcLAMSMC/8To5kwYDgLUcA95R9xcbxiTChpd1Egu24Xk5axY1Del9opQg8S9WyEYSGNZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- Reference JS file -->
+<!-- Reference library file -->
 <script src="qualibpmn.js"></script>
-
-<!-- Or better use minified JS file -->
-<script src="qualibpmn.min.js"></script>
 ```
 
 Basic usage example:
