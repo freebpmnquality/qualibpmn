@@ -817,10 +817,11 @@ class QualiBPMNUtil {
      */
     static getFlatProcessElement(element, type) {
         const object = {
+            id: element._id,
             name: element._name === undefined ? element._id : element._name,
             type: this.getGenericType(type),
-            incoming: element.incoming === undefined ? 0 : element.incoming.length === undefined ? 1 : element.incoming.length,
-            outgoing: element.outgoing === undefined ? 0 : element.outgoing.length === undefined ? 1 : element.outgoing.length
+            incoming: element.incoming === undefined ? 0 : Array.isArray(element.incoming) ? element.incoming.length : 1,
+            outgoing: element.outgoing === undefined ? 0 : Array.isArray(element.outgoing) ? element.outgoing.length : 1
         };
 
         object.image = this.getElementImage(object);
