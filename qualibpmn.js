@@ -876,6 +876,8 @@ class QualiBPMNUtil {
         let sum = 0;
 
         for (let i = 0; i < x.length; i++) {
+
+            // Minkowski distance
             sum += Math.abs(x[i] - y[i]);
         }
 
@@ -887,15 +889,16 @@ class QualiBPMNUtil {
      */
     static evaluateProcess(process) {
         for (const i in process.elements) {
-            process.elements[i].evaluation = [];
+            process.elements[i].warnings = [];
 
             for (const j in this.ERROR_IMAGES) {
                 const similarity = this.getDistance(process.elements[i].image, this.ERROR_IMAGES[j].image);
 
                 if (similarity === 0) {
-                    process.elements[i].evaluation.push({
-                        image: this.ERROR_IMAGES[j],
-                        similarity: similarity
+                    process.elements[i].warnings.push({
+                        description: this.ERROR_IMAGES[j].description,
+                        incomplete: this.ERROR_IMAGES[j].incomplete,
+                        redundant: this.ERROR_IMAGES[j].redundant
                     });
                 }
             }
@@ -925,11 +928,11 @@ class QualiBPMNUtil {
         let redundantSymbols = 0;
 
         for (const i in process.elements) {
-            if (process.elements[i].evaluation.length > 0) {
+            if (process.elements[i].warnings.length > 0) {
                 invalidSymbols++;
 
-                incompleteSymbols += process.elements[i].evaluation[0].image.incomplete;
-                redundantSymbols += process.elements[i].evaluation[0].image.redundant;
+                incompleteSymbols += process.elements[i].warnings[0].incomplete;
+                redundantSymbols += process.elements[i].warnings[0].redundant;
             }
         }
 
