@@ -895,7 +895,7 @@ class QualiBPMNUtil {
                 if (similarity === 0) {
                     process.elements[i].evaluation.push({
                         image: this.ERROR_IMAGES[j],
-                        similarity: similarity,
+                        similarity: similarity
                     });
                 }
             }
