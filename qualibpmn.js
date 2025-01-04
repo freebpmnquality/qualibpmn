@@ -758,7 +758,17 @@ class QualiBPMNUtil {
      * Extracts process definitions from the BPMN JSON.
      */
     static getProcesses(bpmnJSON) {
-        return bpmnJSON.definitions.process;
+        const processes = bpmnJSON.definitions.process;
+
+        // Check if object is iterable
+        // This means BPMN model contains several processes
+        if (typeof processes[Symbol.iterator] === 'function') {
+            return processes;
+        }
+
+        // If BPMN models contains single process
+        // Return collection of one process
+        return [processes];
     }
 
     /**

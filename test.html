@@ -11,35 +11,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.1.3/xml2json.min.js" integrity="sha512-xl6hrpp8+qe3CwgDhhcLAMSMC/8To5kwYDgLUcA95R9xcbxiTChpd1Egu24Xk5axY1Del9opQg8S9WyEYSGNZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Lib -->
-    <script src="qualibpmn.min.js"></script>
+    <script src="qualibpmn.js"></script>
 
     <!-- Test -->
     <script>
-        const url = 'https://raw.githubusercontent.com/freebpmnquality/cloud-services/main/analytics/samples/01-tasks.bpmn';
+        const urls = [
+            // BPMN model with one process
+            'https://raw.githubusercontent.com/camunda/bpmn-for-research/refs/heads/master/BPMN%20for%20Research/English/01-Dispatch-of-goods/03-Solution/Dispatch-of-goods.bpmn',
 
-        // Fetch BPMN
-        const bpmn = QualiBPMNUtil.getBPMNByURL(url);
+            // BPMN model with several processes
+            'https://raw.githubusercontent.com/camunda/bpmn-for-research/refs/heads/master/BPMN%20for%20Research/English/04-Self-service-restaurant/03-Solution/self-service-restaurant.bpmn'
+        ];
 
-        // Convert to JSON
-        const json = QualiBPMNUtil.translateBPMNToJSON(bpmn);
+        urls.forEach(url => {
+            console.log('BPMN: ' + url);
 
-        // Extract processes
-        const processes = QualiBPMNUtil.getProcesses(json);
+            // Fetch BPMN
+            const bpmn = QualiBPMNUtil.getBPMNByURL(url);
 
-        for (const process in processes) {
-            // Get flat process elements data
-            const flat = QualiBPMNUtil.getFlatProcessElements(processes[process]);
+            // Convert to JSON
+            const json = QualiBPMNUtil.translateBPMNToJSON(bpmn);
 
-            // Evaluate process elements
-            const evaluated = QualiBPMNUtil.evaluateProcess(flat);
+            // Extract processes
+            const processes = QualiBPMNUtil.getProcesses(json);
 
-            console.log(evaluated);
+            for (const process in processes) {
+                // Get flat process elements data
+                const flat = QualiBPMNUtil.getFlatProcessElements(processes[process]);
 
-            // Measure process quality
-            const measured = QualiBPMNUtil.measureSyntacticQuality(evaluated);
+                // Evaluate process elements
+                const evaluated = QualiBPMNUtil.evaluateProcess(flat);
 
-            console.log(measured);
-        }
+                console.log(evaluated);
+
+                // Measure process quality
+                const measured = QualiBPMNUtil.measureSyntacticQuality(evaluated);
+
+                console.log(measured);
+            }
+        });
     </script>
 </body>
 
