@@ -15,41 +15,31 @@
 
     <!-- Test -->
     <script>
-        const urls = [
-            // BPMN model with one process
-            'https://raw.githubusercontent.com/camunda/bpmn-for-research/refs/heads/master/BPMN%20for%20Research/English/01-Dispatch-of-goods/03-Solution/Dispatch-of-goods.bpmn',
+        const url = 'https://raw.githubusercontent.com/freebpmnquality/freebpmnquality.github.io/refs/heads/master/samples/01-tasks.bpmn';
 
-            // BPMN model with several processes
-            'https://raw.githubusercontent.com/camunda/bpmn-for-research/refs/heads/master/BPMN%20for%20Research/English/04-Self-service-restaurant/03-Solution/self-service-restaurant.bpmn'
-        ];
+        // Fetch BPMN
+        const bpmn = QualiBPMNUtil.getBPMNByURL(url);
 
-        urls.forEach(url => {
-            console.log('BPMN: ' + url);
+        // Convert to JSON
+        const json = QualiBPMNUtil.translateBPMNToJSON(bpmn);
 
-            // Fetch BPMN
-            const bpmn = QualiBPMNUtil.getBPMNByURL(url);
+        // Extract processes
+        const processes = QualiBPMNUtil.getProcesses(json);
 
-            // Convert to JSON
-            const json = QualiBPMNUtil.translateBPMNToJSON(bpmn);
+        for (const process in processes) {
+            // Get flat process elements data
+            const flat = QualiBPMNUtil.getFlatProcessElements(processes[process]);
 
-            // Extract processes
-            const processes = QualiBPMNUtil.getProcesses(json);
+            // Evaluate process elements
+            const evaluated = QualiBPMNUtil.evaluateProcess(flat);
 
-            for (const process in processes) {
-                // Get flat process elements data
-                const flat = QualiBPMNUtil.getFlatProcessElements(processes[process]);
+            console.log(evaluated);
 
-                // Evaluate process elements
-                const evaluated = QualiBPMNUtil.evaluateProcess(flat);
+            // Measure process quality
+            const measured = QualiBPMNUtil.measureSyntacticQuality(evaluated);
 
-                console.log(evaluated);
-
-                // Measure process quality
-                const measured = QualiBPMNUtil.measureSyntacticQuality(evaluated);
-
-                console.log(measured);
-            }
-        });
+            console.log(measured);
+        }
     </script>
 </body>
 
